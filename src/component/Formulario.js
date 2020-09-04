@@ -9,8 +9,8 @@ font-weight: bold;
 font-size:20px;
 padding:10px;
 background-color:#66a2fe;
-border:none;
-width:100%;
+border: none;
+width: 100%;
 border-radius: 10px;
 color:#fff;
 transition: background-color .3s ease;
@@ -31,9 +31,9 @@ const MONEDAS = [
     {codigo : 'CHL', nombre: 'Peso Chileno'},
     {codigo : 'EUR', nombre: 'Euro'},
     {codigo : 'GBP', nombre: 'Libra Esterlina'},
-    {codigo : 'COD', nombre: 'Peso Colombiano'},
-   
+    {codigo : 'COD', nombre: 'Peso Colombiano'}
 ]
+
     const [moneda, SelectMoneda] = useMoneda('elige tu moneda','',MONEDAS);
 
     return (
