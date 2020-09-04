@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import useMoneda from './hooks/useMoneda'
 import useCriptomoneda from './hooks/useCriptomoneda'
 import Axios from 'axios';
+import Error from './Error'
 
 
 const Boton = styled.input`
@@ -24,10 +25,10 @@ transition: background-color .3s ease;
 
 `
 
-const Formulario = () => {
+const Formulario = ({ guardarMoneda, guardarCriptomoneda }) => {
     //state del listado de criptomoneda
 
-    const [listacripto, guardarCriptomoneda] = useState([])
+    const [listacripto, guardarCriptomonedas] = useState([])
     const [error, guardarError] = useState(false);
 
     //utilizar useMoneda
@@ -52,7 +53,7 @@ const Formulario = () => {
 
             const resultado = await Axios.get(url);
 
-            guardarCriptomoneda(resultado.data.Data);
+            guardarCriptomonedas(resultado.data.Data);
         }
         ConsultarAPi()
 
@@ -60,20 +61,22 @@ const Formulario = () => {
 
     const cotizarMoneda = e => {
         e.preventDefault();
-        if(moneda=== '' || criptomoneda ===''){
+        if (moneda === '' || criptomoneda === '') {
             guardarError(true);
             return
         }
-        
+
         //pasando al componente principal
         guardarError(false)
+        guardarMoneda(moneda)
+        guardarCriptomoneda(criptomoneda)
     }
 
     return (
         <form
             onSubmit={cotizarMoneda}
         >
-            {error ? 'Tienes un error': null}
+            {error ? <Error mensaje='Todos los campos son obligatorios' /> : null}
 
             <SelectMoneda />
 
