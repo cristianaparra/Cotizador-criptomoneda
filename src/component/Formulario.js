@@ -37,7 +37,8 @@ const Formulario = ({ guardarMoneda, guardarCriptomoneda }) => {
         { codigo: 'MXN', nombre: 'Peso Mexicano' },
         { codigo: 'EUR', nombre: 'Euro' },
         { codigo: 'GBP', nombre: 'Libra Esterlina' },
-        { codigo: 'COD', nombre: 'Peso Colombiano' }
+        { codigo: 'COP', nombre: 'Peso Colombiano' },
+        { codigo: 'CLP', nombre: 'Peso Chileno' },
     ]
 
     const [moneda, SelectMoneda] = useMoneda('elige tu moneda', '', MONEDAS);
@@ -82,7 +83,7 @@ const Formulario = ({ guardarMoneda, guardarCriptomoneda }) => {
             <SelectCripto />
 
             <Boton
-                type='submite'
+                type='submit'
                 value='Calcular'
             />
 
