@@ -25,8 +25,16 @@ transition: background-color .3s ease;
 const Formulario = () => {
 
     //utilizar useMoneda
-
-    const [moneda, SelectMoneda, actualizarState] = useMoneda();
+const MONEDAS = [
+    {codigo : 'USD', nombre: 'Dolar de Estados Unidos'},
+    {codigo : 'MXN', nombre: 'Peso Mexicano'},
+    {codigo : 'CHL', nombre: 'Peso Chileno'},
+    {codigo : 'EUR', nombre: 'Euro'},
+    {codigo : 'GBP', nombre: 'Libra Esterlina'},
+    {codigo : 'COD', nombre: 'Peso Colombiano'},
+   
+]
+    const [moneda, SelectMoneda] = useMoneda('elige tu moneda','',MONEDAS);
 
     return (
         <form>
