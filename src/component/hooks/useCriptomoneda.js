@@ -21,7 +21,7 @@ font-size: 1.2rem;
 `
 
 const useCriptomoneda = (label, stateInicial, opciones) => {
-console.log(opciones)
+
     //state de nuestro custom hook
     const [state, actualizarState] = useState(stateInicial);
 
@@ -34,10 +34,10 @@ console.log(opciones)
                 value={state}
             >
                 <option value='MXN'>-- Seleccione --</option>
-                {/* {opciones.map(opciones => (
-                    <option key={opciones.codigo} value={opciones.codigo}>{opciones.nombre}</option>
+                {opciones.map(opciones => (
+                    <option key={opciones.CoinInfo.id} value={opciones.CoinInfo.Name}>{opciones.CoinInfo.FullName}</option>
 
-                ))} */}
+                ))}
             </Select>
         </Fragment>
 
