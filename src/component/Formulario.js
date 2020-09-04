@@ -27,7 +27,8 @@ transition: background-color .3s ease;
 const Formulario = () => {
     //state del listado de criptomoneda
 
-    const[listacripto, guardarCriptomoneda] = useState([])
+    const [listacripto, guardarCriptomoneda] = useState([])
+    const [error, guardarError] = useState(false);
 
     //utilizar useMoneda
     const MONEDAS = [
@@ -57,10 +58,23 @@ const Formulario = () => {
 
     }, [])
 
-
+    const cotizarMoneda = e => {
+        e.preventDefault();
+        if(moneda=== '' || criptomoneda ===''){
+            guardarError(true);
+            return
+        }
+        
+        //pasando al componente principal
+        guardarError(false)
+    }
 
     return (
-        <form>
+        <form
+            onSubmit={cotizarMoneda}
+        >
+            {error ? 'Tienes un error': null}
+
             <SelectMoneda />
 
             <SelectCripto />
