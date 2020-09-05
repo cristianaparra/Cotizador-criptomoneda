@@ -24,7 +24,7 @@ const Cotizacion = ({ resultado }) => {
     if (Object.keys(resultado).length === 0) return null;
     return (
         <ResultadoDiv>
-            <Precio>EL Precio es: <Precio>{resultado.PRICE}</Precio></Precio>
+            <Precio>EL Precio es: <span>{resultado.PRICE}</span></Precio>
             <Info>EL Precio mas alto del dia es: <span>{resultado.HIGHDAY}</span></Info>
             <Info>EL Precio mas bajo del dia es: <span>{resultado.LOWDAY}</span></Info>
             <Info>Variacion ultimas 24 horas es: <span>{resultado.CHANGEPCT24HOUR}</span></Info>

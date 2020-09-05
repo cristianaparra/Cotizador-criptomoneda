@@ -33,7 +33,7 @@ const useMoneda = (label, stateInicial, opciones) => {
                 onChange={e => actualizarState(e.target.value)}
                 value={state}
             >
-                <option value='MXN'>-- Seleccione --</option>
+                <option value=''>-- Seleccione --</option>
                 {opciones.map(opciones => (
                     <option key={opciones.codigo} value={opciones.codigo}>{opciones.nombre}</option>
 
